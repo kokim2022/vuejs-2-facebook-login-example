@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <facebook-login class="button"
-      appId="420905468863679"
+      appId="932010011091655"
       @login="onLogin"
       @logout="onLogout"
       @get-initial-status="getUserData"
