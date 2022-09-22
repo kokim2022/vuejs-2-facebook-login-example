@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     getUserData() {
-      this?.FB.api("/me", "GET", { fields: "id,name,email,picture" }, (user) => {
+      this.FB.api("/me", "GET", { fields: "id,name,email,picture" }, (user) => {
         this.personalID = user.id;
         this.email = user.email;
         this.name = user.name;
@@ -60,7 +60,7 @@ export default {
       });
     },
     getPages() {
-      this?.FB.api(
+      this.FB.api(
         "me/accounts",
         "GET",
         { fields: "id,name,access_token,picture" },
