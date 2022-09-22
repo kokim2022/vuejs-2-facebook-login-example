@@ -26,8 +26,33 @@
         </div>
       </div>
     </div>
-    <pre>{{ pages }}</pre>
-    <button @click="getPages">get pages</button>
+    <!-- <pre>{{ pages }}</pre> -->
+    <div
+      style="display: flex;justify-content: center; width: 100%;"
+    >
+      <h2>
+        Connect Your Business Pages
+      </h2>
+    </div>
+
+    <table border="3" align="center">
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+      <tr v-for="(page, index) in pages" :key="index">
+        <td>{{ page.name }}</td>
+        <td>
+          <img :src="page.picture.data.url" alt="" height="100" width="100" />
+        </td>
+        <td>
+          <button>Connect</button>
+        </td>
+      </tr>
+    </table>
+
+    <!-- <button @click="getPages">get pages</button> -->
   </div>
 </template>
 
@@ -44,7 +69,7 @@ export default {
       personalID: "",
       picture: "",
       FB: undefined,
-      pages: null,
+      pages: null
     };
   },
   components: {
@@ -58,6 +83,7 @@ export default {
         this.name = user.name;
         this.picture = user.picture.data.url;
       });
+      this.getPages();
     },
     getPages() {
       this.FB.api(
